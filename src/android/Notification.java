@@ -192,7 +192,7 @@ public class Notification extends CordovaPlugin {
                 Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
-                dlg.setCancelable(true);
+                dlg.setCancelable(false);
                 dlg.setPositiveButton(buttonLabel,
                         new AlertDialog.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -232,7 +232,7 @@ public class Notification extends CordovaPlugin {
                 Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
-                dlg.setCancelable(true);
+                dlg.setCancelable(false);
 
                 // First button
                 if (buttonLabels.length() > 0) {
@@ -322,7 +322,7 @@ public class Notification extends CordovaPlugin {
                 Builder dlg = createDialog(cordova); // new AlertDialog.Builder(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 dlg.setMessage(message);
                 dlg.setTitle(title);
-                dlg.setCancelable(true);
+                dlg.setCancelable(false);
 
                 dlg.setView(promptInput);
 
@@ -452,7 +452,7 @@ public class Notification extends CordovaPlugin {
                 notification.spinnerDialog = createProgressDialog(cordova); // new ProgressDialog(cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
                 notification.spinnerDialog.setTitle(title);
                 notification.spinnerDialog.setMessage(message);
-                notification.spinnerDialog.setCancelable(true);
+                notification.spinnerDialog.setCancelable(false);
                 notification.spinnerDialog.setIndeterminate(true);
                 notification.spinnerDialog.setOnCancelListener(
                         new DialogInterface.OnCancelListener() {
@@ -495,7 +495,7 @@ public class Notification extends CordovaPlugin {
                 notification.progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 notification.progressDialog.setTitle(title);
                 notification.progressDialog.setMessage(message);
-                notification.progressDialog.setCancelable(true);
+                notification.progressDialog.setCancelable(false);
                 notification.progressDialog.setMax(100);
                 notification.progressDialog.setProgress(0);
                 notification.progressDialog.setOnCancelListener(
