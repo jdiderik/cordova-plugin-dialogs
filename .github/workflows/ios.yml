@@ -32,7 +32,8 @@ on:
 jobs:
   test:
     name: iOS ${{ matrix.versions.ios-version }} Test
-    runs-on: macos-latest
+    runs-on: ${{ matrix.versions.os-version }}
+    continue-on-error: true
 
     # hoist configurations to top that are expected to be updated
     env:
@@ -49,9 +50,17 @@ jobs:
     strategy:
       matrix:
         versions:
-          - ios-version: 12.x
-          - ios-version: 13.x
-          - ios-version: 14.x
+          - os-version: macos-11
+            ios-version: 13.x
+            xcode-version: 11.x
+
+          - os-version: macos-11
+            ios-version: 14.x
+            xcode-version: 12.x
+
+          - os-version: macos-11
+            ios-version: 15.x
+            xcode-version: 13.x
 
     steps:
       - uses: actions/checkout@v2
@@ -76,7 +85,7 @@ jobs:
           npm ci
 
       - name: Run paramedic install
-        if: ${{ endswith(env.repo, '/cordova-paramedic')　!= true }}
+        if: ${{ endswith(env.repo, '/cordova-paramedic') != true }}
         run: npm i -g github:apache/cordova-paramedic
 
       - name: Run paramedic tests
